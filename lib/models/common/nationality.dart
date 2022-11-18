@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'nationality.g.dart';
 
-@HiveType(typeId: 3)
+@HiveType(typeId: 17)
 @JsonSerializable()
 class Nationality extends HiveObject {
   @HiveField(0)

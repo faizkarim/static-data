@@ -18,7 +18,7 @@ class RateChildrenAdapter extends TypeAdapter<RateChildren> {
     };
     return RateChildren(
       id: fields[0] as int,
-      headCount: fields[1] as String,
+      headCount: fields[1] as int,
       rate: fields[2] as int,
       pay: fields[3] as int,
     );
@@ -55,7 +55,7 @@ class RateChildrenAdapter extends TypeAdapter<RateChildren> {
 
 RateChildren _$RateChildrenFromJson(Map<String, dynamic> json) => RateChildren(
       id: json['id'] as int,
-      headCount: json['headCount'] as String,
+      headCount: json['headCount'] as int,
       rate: json['rate'] as int,
       pay: json['pay'] as int,
     );

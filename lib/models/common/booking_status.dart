@@ -8,14 +8,14 @@ part 'booking_status.g.dart';
 class BookingStatus extends HiveObject {
   @HiveField(0)
   @JsonKey(name: 'key')
-  String statusKey;
+  String? statusKey;
   @HiveField(1)
   @JsonKey(name: 'name')
-  String name;
+  String? name;
 
   BookingStatus({
-    required this.statusKey,
-    required this.name,
+    this.statusKey,
+    this.name,
   });
 
   factory BookingStatus.fromJson(Map<String, dynamic> json) =>

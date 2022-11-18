@@ -10,8 +10,11 @@ export 'package:hive/hive.dart';
 export 'package:hive_flutter/hive_flutter.dart';
 export 'models/models.dart';
 
-void initialiseAdapter() {
-  Hive.registerAdapter(GetStaticDataResponseAdapter());
+Future<void> initialiseAdapter({required String resourcesHash}) async {
+  await Hive.openBox(C.resourceshHashKey);
+  final resources = Hive.box(C.resourceshHashKey);
+
+  Hive.registerAdapter(CarerGetStaticDataResponseAdapter());
   Hive.registerAdapter(CountryStateAdapter());
   Hive.registerAdapter(PostcodeAdapter());
   Hive.registerAdapter(NationalityAdapter());
@@ -30,9 +33,13 @@ void initialiseAdapter() {
   Hive.registerAdapter(JobStatusAdapter());
   Hive.registerAdapter(CarerApplicationStatusAdapter());
 
-  Hive.openBox<GetStaticDataResponse>(C.staticDataBoxName);
+  Hive.openBox<CarerGetStaticDataResponse>(C.staticDataBoxName);
 }
 
 T? getStorage<T extends Object>() {
   return Hive.box<T>(C.staticDataBoxName).get(C.dataKey);
+}
+
+Future<void> addStorage<T extends Object>(dynamic data) async {
+  return await Hive.box<T>(C.staticDataBoxName).put(C.dataKey, data);
 }

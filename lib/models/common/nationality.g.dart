@@ -8,7 +8,7 @@ part of 'nationality.dart';
 
 class NationalityAdapter extends TypeAdapter<Nationality> {
   @override
-  final int typeId = 3;
+  final int typeId = 17;
 
   @override
   Nationality read(BinaryReader reader) {

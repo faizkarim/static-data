@@ -11,7 +11,7 @@ class RateChildren extends HiveObject {
   int id;
   @HiveField(1)
   @JsonKey(name: 'headCount')
-  String headCount;
+  int headCount;
   @HiveField(2)
   @JsonKey(name: 'rate')
   int rate;

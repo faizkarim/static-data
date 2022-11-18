@@ -17,8 +17,8 @@ class BookingStatusAdapter extends TypeAdapter<BookingStatus> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BookingStatus(
-      statusKey: fields[0] as String,
-      name: fields[1] as String,
+      statusKey: fields[0] as String?,
+      name: fields[1] as String?,
     );
   }
 
@@ -49,8 +49,8 @@ class BookingStatusAdapter extends TypeAdapter<BookingStatus> {
 
 BookingStatus _$BookingStatusFromJson(Map<String, dynamic> json) =>
     BookingStatus(
-      statusKey: json['key'] as String,
-      name: json['name'] as String,
+      statusKey: json['key'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$BookingStatusToJson(BookingStatus instance) =>
