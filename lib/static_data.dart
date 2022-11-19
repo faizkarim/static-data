@@ -11,9 +11,6 @@ export 'package:hive_flutter/hive_flutter.dart';
 export 'models/models.dart';
 
 Future<void> initialiseAdapter({required String resourcesHash}) async {
-  await Hive.openBox(C.resourceshHashKey);
-  final resources = Hive.box(C.resourceshHashKey);
-
   registerAdapter(CarerGetStaticDataResponseAdapter());
   registerAdapter(CountryStateAdapter());
   registerAdapter(PostcodeAdapter());
