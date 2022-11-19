@@ -14,26 +14,37 @@ Future<void> initialiseAdapter({required String resourcesHash}) async {
   await Hive.openBox(C.resourceshHashKey);
   final resources = Hive.box(C.resourceshHashKey);
 
-  Hive.registerAdapter(CarerGetStaticDataResponseAdapter());
-  Hive.registerAdapter(CountryStateAdapter());
-  Hive.registerAdapter(PostcodeAdapter());
-  Hive.registerAdapter(NationalityAdapter());
-  Hive.registerAdapter(BankModelAdapter());
-  Hive.registerAdapter(RaceAdapter());
-  Hive.registerAdapter(LanguageAdapter());
-  Hive.registerAdapter(ReligionAdapter());
-  Hive.registerAdapter(MaritalStatusAdapter());
-  Hive.registerAdapter(OccupationAdapter());
-  Hive.registerAdapter(CarerTypeAdapter());
-  Hive.registerAdapter(RateHourAdapter());
-  Hive.registerAdapter(RateExtraAdapter());
-  Hive.registerAdapter(RateChildrenAdapter());
-  Hive.registerAdapter(CarerReviewQuestionAdapter());
-  Hive.registerAdapter(BookingStatusAdapter());
-  Hive.registerAdapter(JobStatusAdapter());
-  Hive.registerAdapter(CarerApplicationStatusAdapter());
+  registerAdapter(CarerGetStaticDataResponseAdapter());
+  registerAdapter(CountryStateAdapter());
+  registerAdapter(PostcodeAdapter());
+  registerAdapter(NationalityAdapter());
+  registerAdapter(BankModelAdapter());
+  registerAdapter(RaceAdapter());
+  registerAdapter(LanguageAdapter());
+  registerAdapter(ReligionAdapter());
+  registerAdapter(MaritalStatusAdapter());
+  registerAdapter(OccupationAdapter());
+  registerAdapter(CarerTypeAdapter());
+  registerAdapter(RateHourAdapter());
+  registerAdapter(RateExtraAdapter());
+  registerAdapter(RateChildrenAdapter());
+  registerAdapter(CarerReviewQuestionAdapter());
+  registerAdapter(BookingStatusAdapter());
+  registerAdapter(JobStatusAdapter());
+  registerAdapter(CarerApplicationStatusAdapter());
+  registerAdapter(InstitutionAdapter());
+  registerAdapter(CarerHighestEducationAdapter());
+  registerAdapter(CarerEducationStatusAdapter());
+  registerAdapter(CarerWorkStatusAdapter());
+  registerAdapter(CarerEmploymentStatusAdapter());
+  registerAdapter(CarerBreadwinnerStatusAdapter());
+  registerAdapter(CarerIncomeCategoryAdapter());
 
   Hive.openBox<CarerGetStaticDataResponse>(C.staticDataBoxName);
+}
+
+void registerAdapter<T extends Object>(TypeAdapter<T> adapter) {
+  return Hive.registerAdapter<T>(adapter);
 }
 
 T? getStorage<T extends Object>() {

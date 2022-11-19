@@ -62,6 +62,27 @@ class CarerGetStaticDataResponse extends HiveObject {
   @HiveField(17)
   @JsonKey(name: 'supportIssues')
   List<String>? supportIssues;
+  @HiveField(18)
+  @JsonKey(name: 'institutions')
+  List<Institution>? institutions;
+  @HiveField(19)
+  @JsonKey(name: 'carerHighestEducation')
+  List<CarerHighestEducation>? carerHighestEducations;
+  @HiveField(20)
+  @JsonKey(name: 'carerEducationStatuses')
+  List<CarerEducationStatus>? carerEducationStatuses;
+  @HiveField(21)
+  @JsonKey(name: 'carerWorkStatuses')
+  List<CarerWorkStatus>? carerWorkStatuses;
+  @HiveField(22)
+  @JsonKey(name: 'carerEmploymentStatuses')
+  List<CarerEmploymentStatus>? carerEmploymentStatuses;
+  @HiveField(23)
+  @JsonKey(name: 'carerBreadwinnerStatuses')
+  List<CarerBreadwinnerStatus>? carerBreadwinnerStatuses;
+  @HiveField(24)
+  @JsonKey(name: 'carerIncomeCategories')
+  List<CarerIncomeCategory>? carerIncomeCategories;
 
   CarerGetStaticDataResponse({
     this.states,
@@ -82,6 +103,13 @@ class CarerGetStaticDataResponse extends HiveObject {
     this.jobStatuses,
     this.carerApplicationStatuses,
     this.supportIssues,
+    this.institutions,
+    this.carerHighestEducations,
+    this.carerEducationStatuses,
+    this.carerWorkStatuses,
+    this.carerEmploymentStatuses,
+    this.carerBreadwinnerStatuses,
+    this.carerIncomeCategories,
   });
 
   factory CarerGetStaticDataResponse.fromJson(Map<String, dynamic> json) =>

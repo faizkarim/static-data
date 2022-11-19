@@ -37,13 +37,24 @@ class CarerGetStaticDataResponseAdapter
       carerApplicationStatuses:
           (fields[16] as List?)?.cast<CarerApplicationStatus>(),
       supportIssues: (fields[17] as List?)?.cast<String>(),
+      institutions: (fields[18] as List?)?.cast<Institution>(),
+      carerHighestEducations:
+          (fields[19] as List?)?.cast<CarerHighestEducation>(),
+      carerEducationStatuses:
+          (fields[20] as List?)?.cast<CarerEducationStatus>(),
+      carerWorkStatuses: (fields[21] as List?)?.cast<CarerWorkStatus>(),
+      carerEmploymentStatuses:
+          (fields[22] as List?)?.cast<CarerEmploymentStatus>(),
+      carerBreadwinnerStatuses:
+          (fields[23] as List?)?.cast<CarerBreadwinnerStatus>(),
+      carerIncomeCategories: (fields[24] as List?)?.cast<CarerIncomeCategory>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, CarerGetStaticDataResponse obj) {
     writer
-      ..writeByte(18)
+      ..writeByte(25)
       ..writeByte(0)
       ..write(obj.states)
       ..writeByte(1)
@@ -79,7 +90,21 @@ class CarerGetStaticDataResponseAdapter
       ..writeByte(16)
       ..write(obj.carerApplicationStatuses)
       ..writeByte(17)
-      ..write(obj.supportIssues);
+      ..write(obj.supportIssues)
+      ..writeByte(18)
+      ..write(obj.institutions)
+      ..writeByte(19)
+      ..write(obj.carerHighestEducations)
+      ..writeByte(20)
+      ..write(obj.carerEducationStatuses)
+      ..writeByte(21)
+      ..write(obj.carerWorkStatuses)
+      ..writeByte(22)
+      ..write(obj.carerEmploymentStatuses)
+      ..writeByte(23)
+      ..write(obj.carerBreadwinnerStatuses)
+      ..writeByte(24)
+      ..write(obj.carerIncomeCategories);
   }
 
   @override
@@ -234,6 +259,32 @@ CarerGetStaticDataResponse _$CarerGetStaticDataResponseFromJson(
       supportIssues: (json['supportIssues'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      institutions: (json['institutions'] as List<dynamic>?)
+          ?.map((e) => Institution.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerHighestEducations: (json['carerHighestEducation'] as List<dynamic>?)
+          ?.map(
+              (e) => CarerHighestEducation.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerEducationStatuses: (json['carerEducationStatuses'] as List<dynamic>?)
+          ?.map((e) => CarerEducationStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerWorkStatuses: (json['carerWorkStatuses'] as List<dynamic>?)
+          ?.map((e) => CarerWorkStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerEmploymentStatuses: (json['carerEmploymentStatuses']
+              as List<dynamic>?)
+          ?.map(
+              (e) => CarerEmploymentStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerBreadwinnerStatuses: (json['carerBreadwinnerStatuses']
+              as List<dynamic>?)
+          ?.map(
+              (e) => CarerBreadwinnerStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerIncomeCategories: (json['carerIncomeCategories'] as List<dynamic>?)
+          ?.map((e) => CarerIncomeCategory.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
@@ -257,6 +308,13 @@ Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
       'jobStatuses': instance.jobStatuses,
       'carerApplicationStatuses': instance.carerApplicationStatuses,
       'supportIssues': instance.supportIssues,
+      'institutions': instance.institutions,
+      'carerHighestEducation': instance.carerHighestEducations,
+      'carerEducationStatuses': instance.carerEducationStatuses,
+      'carerWorkStatuses': instance.carerWorkStatuses,
+      'carerEmploymentStatuses': instance.carerEmploymentStatuses,
+      'carerBreadwinnerStatuses': instance.carerBreadwinnerStatuses,
+      'carerIncomeCategories': instance.carerIncomeCategories,
     };
 
 CustomerGetStaticDataResponse _$CustomerGetStaticDataResponseFromJson(
